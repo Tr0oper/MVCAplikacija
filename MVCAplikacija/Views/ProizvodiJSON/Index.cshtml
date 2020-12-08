@@ -1,0 +1,62 @@
+﻿@model List<MVCAplikacija.Models.ProizvodJSON>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>JSON Proizvodi</h2>
+
+@foreach (var proizvod in Model)
+{
+<p>
+    ID: @proizvod.ID<br />
+    Naziv: @proizvod.Naziv<br />
+    Opis: @proizvod.Opis<br />
+    Kategorija: @proizvod.Kategorija<br />
+    Proizvodjac: @proizvod.Proizvodjac<br />
+    Dobavljac: @proizvod.Dobavljac<br />
+    Cena: @proizvod.Cena<br />
+</p>
+}
+
+<h1>Dodaj ili izmeni proizvod</h1>
+@using (Html.BeginForm("Index", "ProizvodiJSON", FormMethod.Post))
+{
+    MVCAplikacija.Models.ProizvodJSON proizvod = new MVCAplikacija.Models.ProizvodJSON();
+    <label asp-for="@proizvod.ID">ID</label>
+    <br />
+    <input type="text" asp-for="@proizvod.ID" name="ID" />
+    <br />
+    <br />
+    <label asp-for="@proizvod.Naziv">Naziv</label>
+    <br />
+    <input type="text" asp-for="@proizvod.Naziv" name="Naziv" />
+    <br />
+    <br />
+    <label asp-for="@proizvod.Opis">Opis</label>
+    <br />
+    <input type="text" asp-for="@proizvod.Opis" name="Opis" />
+    <br />
+    <br />
+    <label asp-for="@proizvod.Kategorija">Kategorija</label>
+    <br />
+    <input type="text" asp-for="@proizvod.Kategorija" name="Kategorija" />
+    <br />
+    <br />
+    <label asp-for="@proizvod.Proizvodjac">Proizvodjac</label>
+    <br />
+    <input type="text" asp-for="@proizvod.Proizvodjac" name="Proizvodjac" />
+    <br />
+    <br />
+    <label asp-for="@proizvod.Dobavljac">Dobavljac</label>
+    <br />
+    <input type="text" asp-for="@proizvod.Dobavljac" name="Dobavljac" />
+    <br />
+    <br />
+    <label asp-for="@proizvod.Cena">Cena</label>
+    <br />
+    <input type="text" asp-for="@proizvod.Cena" name="Cena" />
+    <br />
+    <br />
+    <button type="submit">Dodaj/Izmeni</button>
+}
+
